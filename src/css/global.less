@@ -1,0 +1,285 @@
+@background_color: #f3f4f5;
+@grey: #979899;
+@line_color: #e2e2e2;
+@border_color: #e2e2e2;
+@padding:30px;
+@font_size:26px;
+@black: #35383a;
+@border_radius:6px;
+
+@red: #ff3d1f;
+@light_orange:#FFF4E7;
+@orange: #FF8100;
+@orangebg_color: #FF8100;
+@orangeborder_color: #FF8100;
+@shadow_color: #C2C2C2;
+@green: #CBEBAC;
+@pink: #FFCBBC;
+@syan: #AEE3FF;
+@blue: #4A90E2;
+@element_disacolor: #eef1f6;
+@element_bordercolor: #C2C2C2;
+@images: '../../img';
+@img: './img';
+@img2: '../img';
+@grey_bg:#8A8C92;
+@success: #67c23a;
+@warn: #e6a23c;
+@danger: #f56c6c;
+@color: #FF8100;
+
+
+body,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+legend,
+input,
+select,
+textarea,
+button,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+}
+
+ul,
+dl,
+ol {
+    list-style: none;
+}
+
+img,
+fieldset,
+input[type="submit"] {
+    border: 0 none;
+}
+
+img {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+em {
+    font-style: normal;
+}
+
+strong {
+    font-weight: normal;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+button,
+input[type="button"] {
+    cursor: pointer;
+    border: 0 none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+textarea {
+    word-wrap: break-word;
+    resize: none;
+}
+
+
+/* word-wrap for opera, resize for webkit */
+
+menu {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    -webkit-user-select: none;
+    -webkit-text-size-adjust: none;
+    font-family: Arial, helvetica, "微软雅黑", "Microsoft Yahei", sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+input[type="number"] {
+    -webkit-user-select: text;
+}
+
+a,
+button,
+input,
+img {
+    -webkit-touch-callout: none;
+}
+
+
+/* 1.ios 长按时不触发系统的菜单 2.禁止长按时下载图片 */
+
+input,
+select,
+textarea {
+    outline: none;
+}
+
+a,
+button,
+input,
+textarea,
+span {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a,
+a:link,
+a:visited,
+a:hover {
+    text-decoration: none;
+    color: @black;
+    cursor: pointer;
+}
+
+@media all and (-webkit-transform-3d) {
+    /* android4.0+ ios4+ 恢复按钮被点击时产生的效果 */
+    a,
+    button,
+    input,
+    textarea,
+    span {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+}
+
+input,
+textarea {
+    /* 消除ios内阴影 */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: white;
+    background-image: none;
+    color: rgb(0, 0, 0);
+}
+
+section,
+div,
+dl,
+dt,
+dd,
+footer {
+    box-sizing: border-box;
+}
+
+
+/* ==================共用============================================================ */
+
+body {
+    background: @background_color ;
+    color: @black;
+    /* 增加该属性，可以增加弹性 */
+    -webkit-overflow-scrolling: touch;
+}
+
+body.bg_white {
+    background: white;
+}
+
+#app {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 10rem;
+    height: 100%;
+    font-size: @font_size;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clearfix {
+    zoom: 1;
+    &:after {
+        content: " ";
+        display: block;
+        font-size: 0;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+        overflow: hidden;
+    }
+}
+
+.clearfix_line {
+    content: "";
+    clear: both;
+    overflow: hidden;
+    width: 100%;
+    height: 1px;/*no*/
+    background: @border_color;
+}
+
+.clearfix_liner {
+    content: "";
+    clear: both;
+    overflow: hidden;
+    width: 92%;
+    margin: 0 auto;
+    height: 1px;/*no*/
+    background: @border_color;
+}
+
+//element-ui调整
+// .mint-toast{
+//     padding:15px 20px;
+//     .mint-toast-text{
+//         font-size: 30px;
+//     }
+// }

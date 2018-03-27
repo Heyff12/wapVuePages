@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+    <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <meta name="format-detection" content="telephone=no, email=no">
+    <!--<script src="/node_modules/lib-flexible/flexible.js"></script>-->
+    <!-- <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+        
+        .v-cloak--block,
+        .v-cloak--inline,
+        .v-cloak--inlineBlock {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+</body>
+<script>
+    if ('addEventListener' in document) {
+        document.addEventListener('DOMContentLoaded', function() {
+            FastClick.attach(document.body)
+        }, false)
+    }
+</script>
+
+</html>
