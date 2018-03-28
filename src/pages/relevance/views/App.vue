@@ -33,16 +33,13 @@
                 <dl class="hang note">
                     <dt></dt>
                     <dd class="green" v-if="role_type==1 && status==3">
-                        <i class="iconTip"><img src="~images/info_success.png" alt=""></i>
-                        有效销售人员。
+                        <i class="iconTip"><img src="~images/info_success.png" alt=""></i> 有效销售人员。
                     </dd>
                     <dd class="red" v-else-if="role_type==1 && status==2">
-                        <i class="iconTip"><img src="~images/info_error.png" alt=""></i>
-                        此销售人员账户未激活。
+                        <i class="iconTip"><img src="~images/info_error.png" alt=""></i> 此销售人员账户未激活。
                     </dd>
                     <dd v-else>
-                        <i class="iconTip"><img src="~images/info.png" alt=""></i>
-                        填写销售人员信息有助于后期进行跟进服务。
+                        <i class="iconTip"><img src="~images/info.png" alt=""></i> 填写销售人员信息有助于后期进行跟进服务。
                     </dd>
                 </dl>
             </section>
@@ -71,9 +68,9 @@
                     mobile: false,
                 },
                 bind_url: '/fenqi/v1/api/fitment/bind', //关联销售
-                role_type:'0',
-                status:'0',//是否是有效销售人员
-                redirect_url:'',//跳转链接
+                role_type: '0',
+                status: '0', //是否是有效销售人员
+                redirect_url: '', //跳转链接
             }
         },
         created() {},
@@ -114,8 +111,8 @@
                 })
             },
             //点击下一步
-            nextTo:function(){
-                window.location.href=this.redirect_url
+            nextTo: function() {
+                window.location.href = this.redirect_url
             }
         }
     }

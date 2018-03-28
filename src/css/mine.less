@@ -33,15 +33,17 @@
       li {
         width: 100%;
         border-top: solid @border_color 1px;/*no*/
-        height: 90px;
-        line-height: 90px;
+        min-height: 90px;
+        line-height: 50px;
+        padding-top:20px;
+        box-sizing: border-box;
+        font-size: 28px;
         &:nth-child(1){
             border:0;
         }
         span{
             width: 50%;
             display: inline-block;
-            font-size: 28px;
         }
       }
       .clearfix;

@@ -5,31 +5,24 @@
                 <li>
                     <dl>
                         <dt>共放款（元）</dt>
-                        <dd>{{total_trade_amt}}</dd>
+                        <dd :class="total_trade_amt.toString().length>=12 ? 'fontS' : ''">{{total_trade_amt | crash_format}}</dd>
                     </dl>
                 </li>
                 <li>
                     <dl>
                         <dt>我的分润（元）</dt>
-                        <dd>+{{total_royalty_amt}}</dd>
+                        <dd :class="total_royalty_amt.toString().length>=12 ? 'fontS' : ''">+{{total_royalty_amt | yuan}}</dd>
                     </dl>
                 </li>
             </ul>
         </section>
         <section class="saleList">
             <ul>
-                <li v-for="item in list_now" :key="">
+                <li v-for="item in list_now">
                     <dl>
-                        <dt><span class="fr color">+{{item.royalty_amt}}</span>{{item.real_name}}</dt>
+                        <dt><span class="fr color">+{{item.royalty_amt  | yuan}}</span>{{item.real_name}}</dt>
                         <dd>分期单号：{{item.trade_syssn}}</dd>
-                        <dd class="grey">放款金额：{{item.trade_amt}}<span class="divide"></span>放款日期：{{item.lender_sysdtm}}</dd>
-                    </dl>
-                </li>
-                <li>
-                    <dl>
-                        <dt><span class="fr color">+500.00</span>王*明</dt>
-                        <dd>分期单号：d4546554636565654645464</dd>
-                        <dd class="grey">放款金额：85，000.00<span class="divide"></span>放款日期：2017-03-19</dd>
+                        <dd class="grey">放款金额：{{item.trade_amt | crash_format}}<span class="divide"></span>放款日期：{{item.lender_sysdtm | date_cut(10)}}</dd>
                     </dl>
                 </li>
             </ul>

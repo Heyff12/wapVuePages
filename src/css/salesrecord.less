@@ -22,6 +22,9 @@ body {
         dd {
           font-size: 38px;
           line-height: 80px;
+          &.fontS {
+            font-size: 32px;
+          }
         }
       }
     }
@@ -51,20 +54,43 @@ body {
       dd {
         font-size: 24px;
         line-height: 50px;
-        span.divide{
-            padding: 0 20px;
-            position: relative;
-            &::after{
-                content: '';
-                display:inline-block;
-                width: 1px;
-                height: 20px;
-                background: @grey;
-                position:absolute;
-                top:6px;
-            }
+        span.divide {
+          padding: 0 20px;
+          position: relative;
+          &::after {
+            content: "";
+            display: inline-block;
+            width: 1px;
+            height: 20px;
+            background: @grey;
+            position: absolute;
+            top: 6px;
+          }
         }
       }
     }
+  }
+}
+.salesBank {
+  width: 100%;
+  padding: 50px @padding;
+  box-sizing: border-box;
+  .salesList {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  .salesTop {
+    width: 100%;
+    min-height: 120px;
+    padding: 35px 40px;
+    box-sizing: border-box;
+    background: linear-gradient(#f69c1b, #f9bf57);
+    color: white;
+    font-size: 32px;
+    line-height: 50px;
+    border-radius: 20px 20px 0 0;
+  }
+  .totalHead {
+    border-radius: 0 0 20px 20px;
   }
 }

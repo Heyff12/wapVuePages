@@ -5,17 +5,23 @@ Vue.use(VueRouter);
 
 
 //引入模板
-import App from "./views/App.vue";
+import store from "./views/store.vue";
+import district from "./views/district.vue";
 
 
 const routes = [{
         path: "/",
-        redirect: "/activate"
+        redirect: "/store"
     },
     {
-        name: "activate",
-        path: "/activate",
-        component: App
+        name: "store",
+        path: "/store",
+        component: store
+    },
+    {
+        name: "district",
+        path: "/district",
+        component: district
     }
 ];
 export default new VueRouter({

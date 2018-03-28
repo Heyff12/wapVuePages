@@ -213,14 +213,14 @@
                     this.mobile = data_return.data.base.mobile;
                     this.role_type = data_return.data.base.role_type;
                     this.has_info = true;
-                    if (data_return.data.base.status == 3) {
-                        MessageBox.alert('您的销售账户已激活！').then(action => {
-                            window.opener=null;
-                            window.open('','_self');
-                            window.close();
-                        });
-                        return false;
-                    }
+                    // if (data_return.data.base.status == 3) {
+                    //     MessageBox.alert('您的销售账户已激活！').then(action => {
+                    //         window.opener=null;
+                    //         window.open('','_self');
+                    //         window.close();
+                    //     });
+                    //     return false;
+                    // }
                     let messageVal = '已匹配您为[' + roleName + ']，请确认信息后激活账户'
                     MessageBox.alert(messageVal);
                     }

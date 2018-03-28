@@ -2,7 +2,10 @@
     <div>
         <section class="topInfo">
             <div class="img">
-                <div class="imgin"><img src="~images/pic.png" alt=""></div>
+                <div class="imgin">
+                    <img src="~images/icon_avatar.png" alt="" v-if="!info.head_url">
+                    <img :src="info.head_url" alt="" v-else>
+                </div>
             </div>
             <dl>
                 <dt>Hi,{{info.nick_name}}</dt>
@@ -21,7 +24,7 @@
                 </ul>
                 <ul v-else-if="roleType==5">
                     <li v-for="item in info.district_name">
-                        <span>{{item.district_name}}</span>
+                        {{item.district_name}}
                     </li>
                     <li><span>{{roleName}}</span><span>{{info.real_name}}</span></li>
                 </ul>
@@ -60,7 +63,6 @@
                 roleType: '', //角色类型
                 roleName: '',
                 goName: '',
-                has_info: false, //信息是否展示
                 info_url: '/fenqi/v1/api/user/info', //用户基本信息获取
             }
         },
@@ -71,7 +73,6 @@
             //获取信息
             getInfoStart: function() {
                 this.$ajax_axios.ajax_get(this, this.info_url, '', (data_return) => {
-                    console.log(data_return.data)
                     //根据身份增加提示
                     this.roleType = data_return.data.base.role_type;
                     if (this.roleType == 1) {
@@ -98,24 +99,26 @@
                         this.info.district_name.push(data_return.data.info[0]);
                     }
                     this.info.store = data_return.data.info
-                    console.log(this.info.store)
-                    //保存角色类型 和 手机号
-                    this.has_info = true;
+                    // console.log(this.info.store)
                 })
             },
             //跳转
             gotoUrl: function() {
                 let goUrl = '';
-                if (this.roleType == 1) {
-                    goUrl = '我的销售记录'
-                } else if (this.roleType == 3) {
-                    goUrl = '门店销售记录'
-                } else if (this.roleType == 5) {
-                    goUrl = '大区销售情况'
-                } else {
-                    goUrl = '我的分期订单'
+                let url = location.protocol + '//' + location.hostname;
+                if (location.port) {
+                    url += ':' + location.port;
                 }
-                window.location.href = goUrl
+                if (this.roleType == 1) {
+                    goUrl = '/salesrecord.html#/salesrecord'
+                } else if (this.roleType == 3) {
+                    goUrl = '/sales.html#/store'
+                } else if (this.roleType == 5) {
+                    goUrl = '/sales.html#/district'
+                } else if (this.roleType == 8) {
+                    goUrl = ''
+                }
+                window.location.href = url + goUrl
             }
         }
     }

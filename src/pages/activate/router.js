@@ -6,11 +6,6 @@ Vue.use(VueRouter);
 
 //引入模板
 import App from "./views/App.vue";
-// import register from "./views/register.vue";
-// const App = () =>
-//     import ("./views/App.vue");
-// const register = () =>
-//     import ("./views/register.vue");
 
 
 const routes = [{
@@ -22,11 +17,6 @@ const routes = [{
         path: "/activate",
         component: App
     }
-    // {
-    //     name: "register",
-    //     path: "/register",
-    //     component: register
-    // }
 ];
 export default new VueRouter({
     scrollBehavior() {
