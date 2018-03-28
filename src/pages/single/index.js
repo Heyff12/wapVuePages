@@ -1,12 +1,10 @@
 import "lib-flexible";
-import Vue from "vue";
-import axios from "axios";
-import VueAxios from "vue-axios";
 import FastClick from "fastclick"; //解决300ms延迟
+import Vue from "vue";
 import router from "./router.js"; //路由
 import App from "./views/App.vue"; //模板
-// import "mint-ui/lib/style.css";
 //引入组建
+// import "mint-ui/lib/style.css";
 // import { Toast, Indicator } from "mint-ui";
 // Vue.use(Toast);
 // Vue.use(Indicator);
@@ -15,7 +13,6 @@ import App from "./views/App.vue"; //模板
 
 
 window.FastClick = FastClick;
-Vue.use(VueAxios, axios);
 
 /* eslint-disable no-new */
 new Vue({

@@ -5,21 +5,6 @@
 
 // 页面配置
 exports.pages = [{
-        filename: "home",
-        // template: "src/pages/home/index.ejs", // 指定 html模板路径
-        title: "首页" // title 可以在模板中指定,
-    },
-    {
-        filename: "login",
-        // template: "src/pages/login/index.ejs", // 指定 html模板路径
-        title: "登陆" // title 可以在模板中指定,
-    },
-    {
-        filename: "partner",
-        template: "src/pages/partner/index.ejs", // 指定 html模板路径
-        title: "合作商" // title 可以在模板中指定,
-    },
-    {
         filename: "single",
         template: "src/pages/single/index.ejs", // 指定 html模板路径
         title: "关于我们" // title 可以在模板中指定,
@@ -27,6 +12,31 @@ exports.pages = [{
     {
         filename: "activate",
         template: "src/pages/activate/index.ejs", // 指定 html模板路径
-        title: "激活账号" // title 可以在模板中指定,
+        title: "激活销售账号" // title 可以在模板中指定,
+    },
+    {
+        filename: "mine",
+        template: "src/pages/mine/index.ejs", // 指定 html模板路径
+        title: "个人中心" // title 可以在模板中指定,
+    },
+    {
+        filename: "relevance",
+        template: "src/pages/relevance/index.ejs", // 指定 html模板路径
+        title: "填写你的销售人员" // title 可以在模板中指定,
+    },
+    {
+        filename: "salesrecord",
+        template: "src/pages/salesrecord/index.ejs", // 指定 html模板路径
+        title: "我的销售记录" // title 可以在模板中指定,
+    },
+    {
+        filename: "sales",
+        template: "src/pages/sales/index.ejs", // 指定 html模板路径
+        title: "销售情况" // title 可以在模板中指定,
+    },
+    {
+        filename: "register",
+        template: "src/pages/register/index.ejs", // 指定 html模板路径
+        title: "绑定手机号" // title 可以在模板中指定,
     }
 ];

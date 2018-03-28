@@ -86,7 +86,7 @@ let ajax_post = (
                     all_func(data);
                     return false;
                 }
-                console.log(response);
+                // console.log(response);
                 let data_return = response.data;
                 //console.log(data_return);
                 if (data_return.respcd == "0000") {

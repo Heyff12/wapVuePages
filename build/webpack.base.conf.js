@@ -33,7 +33,9 @@ module.exports = {
         extensions: [".js", ".vue", ".json"],
         alias: {
             vue$: "vue/dist/vue.esm.js",
-            "@": resolve("src")
+            "@": resolve("src"),
+            "images": resolve("src/img"),
+            "css": resolve("src/css")
         }
     },
     module: {
@@ -56,9 +58,7 @@ module.exports = {
             {
                 test: /\.ejs$/,
                 loader: "ejs-loader",
-                include: [
-                    resolve("src")
-                ]
+                include: [resolve("src")]
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

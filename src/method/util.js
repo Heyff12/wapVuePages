@@ -100,9 +100,30 @@ let mendPost = (val, key, data, originVal) => {
     }
 }
 
+//获取连接当中的指定 字段
+let getParams = (key) => {
+    let url = location.href;
+    let key_len = url.split("?");
+    if (key_len.length <= 1) {
+        return false;
+    }
+    let params = key_len[1];
+    let params_arr = params.split('&')
+    let key_val;
+    params_arr.forEach((item) => {
+        let val = item.split('=')
+        if (val[0] == key) {
+            key_val = val[1]
+            return false;
+        }
+    })
+    return key_val;
+}
+
 
 exports.crash_format = crash_format
 exports.crash_if_format = crash_if_format
 exports.crash_enlarge_format = crash_enlarge_format
 exports.searchPost = searchPost
 exports.mendPost = mendPost
+exports.getParams = getParams;

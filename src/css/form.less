@@ -46,13 +46,13 @@
         font-size: 30px;
         text-align: left;
         &::-moz-placeholder {
-          color: @grey;
+          color: @grey_word;
         }
         &::-webkit-input-placeholder {
-          color: @grey;
+          color: @grey_word;
         }
         &:-ms-input-placeholder {
-          color: @grey;
+          color: @grey_word;
         }
         &.text {
           &.text_shot {
@@ -102,6 +102,22 @@
         }
       }
     }
+    &.note{
+      color: @grey_word;
+      font-size: 22px;
+      height: 70px;
+      line-height: 70px;
+      overflow: hidden;
+    }
+    &.showdt{
+      dt{
+        width:20%;
+        display: block;
+      }
+      dd{
+        width: 70%;
+      }
+    }
     &.error_data {
       border-bottom: solid @red 1px;
       /*no*/
@@ -128,19 +144,13 @@
       color: @grey;
     }
     .clearfix;
-  } //进度条 圆点
-  .mt-range {
-    .mt-range-thumb {
-      width: 20px;
-      height: 20px;
-      top: 5px;
-    }
-  }
+  } 
 }
 
 .btn {
   width: 100%;
   padding: 0 @padding;
+  margin-bottom: 50px;
   span {
     width: 100%;
     display: inline-block;
@@ -151,6 +161,9 @@
     text-align: center;
     color: white;
     font-size: 30px;
-    background: @color;
+    background: linear-gradient(#f69c1b,#f9bf57);
+    &.disa{
+      background: linear-gradient(#979899,#cacfd1);
+    }
   }
 }

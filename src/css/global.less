@@ -1,32 +1,30 @@
 @background_color: #f3f4f5;
 @grey: #979899;
+@grey_word:#cacfd1;
+@single_border:#f9d5a5;
 @line_color: #e2e2e2;
 @border_color: #e2e2e2;
 @padding:30px;
 @font_size:26px;
 @black: #35383a;
 @border_radius:6px;
+@color: #f6a021;
+@orange: #f6a021;
+@light_orange:#fbd194;
+@light_orange_bg:#f9bc64;
+@red: #ff1313;
+@green: #23a75e;
 
-@red: #ff3d1f;
-@light_orange:#FFF4E7;
-@orange: #FF8100;
-@orangebg_color: #FF8100;
-@orangeborder_color: #FF8100;
+
 @shadow_color: #C2C2C2;
-@green: #CBEBAC;
 @pink: #FFCBBC;
 @syan: #AEE3FF;
 @blue: #4A90E2;
-@element_disacolor: #eef1f6;
-@element_bordercolor: #C2C2C2;
-@images: '../../img';
-@img: './img';
-@img2: '../img';
+@img: '../img';
 @grey_bg:#8A8C92;
 @success: #67c23a;
 @warn: #e6a23c;
 @danger: #f56c6c;
-@color: #FF8100;
 
 
 body,
@@ -222,11 +220,9 @@ body {
     color: @black;
     /* 增加该属性，可以增加弹性 */
     -webkit-overflow-scrolling: touch;
+    letter-spacing: 2px;
 }
 
-body.bg_white {
-    background: white;
-}
 
 #app {
     margin: 0 auto;
@@ -244,6 +240,10 @@ body.bg_white {
     float: right;
 }
 
+.t_c{
+    text-align: center;
+}
+
 .clearfix {
     zoom: 1;
     &:after {
@@ -257,26 +257,31 @@ body.bg_white {
     }
 }
 
-.clearfix_line {
-    content: "";
-    clear: both;
-    overflow: hidden;
-    width: 100%;
-    height: 1px;/*no*/
-    background: @border_color;
-}
 
-.clearfix_liner {
-    content: "";
-    clear: both;
-    overflow: hidden;
-    width: 92%;
-    margin: 0 auto;
-    height: 1px;/*no*/
-    background: @border_color;
+.orange {
+    color:@orange;
+}
+.red {
+    color:@red;
+}
+.green {
+    color:@green;
+}
+.grey {
+    color: @grey;
+}
+.color {
+    color: @color;
+}
+.decoration {
+    text-decoration: underline;
 }
 
 //element-ui调整
+.mint-switch-input:checked + .mint-switch-core {
+    border-color:@orange;
+    background-color: @orange;
+}
 // .mint-toast{
 //     padding:15px 20px;
 //     .mint-toast-text{
