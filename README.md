@@ -27,4 +27,13 @@ npm run e2e
 npm test
 ```
 
+## 页面链接  
+*  关于我们                  /single.html#/about  
+*  绑定手机号-注册            /register.html#/register  
+*  激活                     /activate.html#/activate  
+*  填写销售人员              /relevance.html#/relevance  
+*  个人中心                 /mine.html#/usercenter  
+*  门店销售记录              /sales.html#/store  
+*  大区销售记录              /sales.html#/district  
+
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
