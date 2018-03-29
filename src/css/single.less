@@ -62,7 +62,7 @@
         width: 100%;
         padding-top: 20px;
         box-sizing: border-box;
-        border-top: 1px solid @border_color;/*no*/
+        border-top: 1px solid @border_color; /*no*/
         dt {
           width: 20%;
           box-sizing: border-box;
@@ -83,6 +83,42 @@
         dl {
           border: 0;
         }
+      }
+    }
+  }
+}
+
+//协议
+.protocol {
+  width: 100%;
+  padding: @padding;
+  box-sizing: border-box;
+  h2 {
+    font-size: 36px;
+    line-height: 70px;
+    text-align: center;
+  }
+  p {
+    margin-bottom: 15px;
+    &.indent {
+      text-indent: 2em;
+    }
+  }
+  span {
+    &.bold {
+      font-weight: bold;
+    }
+  }
+  dl {
+    width: 100%;
+    dt {
+      font-size: 30px;
+      line-height: 70px;
+      font-weight: bold;
+    }
+    dd {
+      &.bold {
+        font-weight: bold;
       }
     }
   }

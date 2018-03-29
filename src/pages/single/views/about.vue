@@ -49,7 +49,7 @@
 
 <script>
     export default {
-        name: 'single',
+        name: 'about',
         components: {},
         data() {
             return {
@@ -64,5 +64,5 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" rel="stylesheet/less">
-    @import '~css/single';
+    // @import '~css/single';
 </style>

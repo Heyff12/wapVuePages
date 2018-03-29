@@ -35,7 +35,7 @@ gulp.task("copy_html", function() {
     //复制到bin/template
     gulp
         .src(file_road.html_src)
-        .pipe(header("# coding: utf-8 \n")) //增加头部代码
+        // .pipe(header("# coding: utf-8 \n")) //增加头部代码
         .pipe(gulp.dest(file_road.html_dst));
 });
 

@@ -5,8 +5,12 @@ Vue.use(VueRouter);
 
 
 //引入模板
-import store from "./views/store.vue";
-import district from "./views/district.vue";
+// import store from "./views/store.vue";
+// import district from "./views/district.vue";
+const store = () =>
+    import ("./views/store.vue");
+const district = () =>
+    import ("./views/district.vue");
 
 
 const routes = [{

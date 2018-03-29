@@ -5,8 +5,11 @@ Vue.use(VueRouter);
 
 
 //引入模板
-import App from "./views/App.vue";
-
+// import about from "./views/about.vue";
+const about = () =>
+    import ("./views/about.vue");
+const protocol = () =>
+    import ("./views/protocol.vue");
 
 const routes = [{
         path: "/",
@@ -15,7 +18,12 @@ const routes = [{
     {
         name: "about", // 关于我们
         path: "/about",
-        component: App
+        component: about
+    },
+    {
+        name: "protocol", // 平台服务协议
+        path: "/protocol",
+        component: protocol
     }
 ];
 export default new VueRouter({

@@ -34,7 +34,7 @@
             </dl>
         </section>
         <section class="info">
-            <mt-switch v-model="if_agree"></mt-switch><a href="">我已阅读并同意好近分期<span class="orange decoration">《平台服务协议》</span></a>
+            <mt-switch v-model="if_agree"></mt-switch><a href="http://192.168.0.165:9091/single.html#/protocol">我已阅读并同意好近分期<span class="orange decoration">《平台服务协议》</span></a>
         </section>
         <section class="btn">
             <span @click="get_reg">立即绑定</span>
@@ -59,7 +59,7 @@
                 reg: {
                     mobile: '', //12344444444
                     verify_code: '', //4444444
-                    redirect_url: getParams('redirect_url')
+                    redirect_url: decodeURIComponent(getParams('redirect_url'))
                 },
                 regErr: {
                     mobile: false,
@@ -68,7 +68,7 @@
                 if_agree: false,
                 bind_url: '/fenqi/v1/api/user/bind', //用户绑定手机号
                 captcha_url: '/fenqi/v1/api/tools/send', //获取验证码
-                time_sec: 0, //倒计时    
+                time_sec: 0, //倒计时   
             }
         },
         created() {

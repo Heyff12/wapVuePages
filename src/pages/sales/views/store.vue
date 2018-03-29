@@ -41,12 +41,18 @@
                 list_now: [], //当前展示信息    
             }
         },
-        created() {
+        watch: {
+            '$route' (to, from) {
+                console.log(to);
+                // document.title = 'shanghu';
+            }
+        },
+        created() {  
+            console.log(this.$route);          
             this.getStoreList();
         },
         methods: {
             getStoreList() {
-                console.log('district')
                 let post_data = {
                     'page': this.page_now,
                     'page_size': this.page_per,
