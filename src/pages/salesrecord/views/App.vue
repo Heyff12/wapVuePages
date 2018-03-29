@@ -59,7 +59,12 @@
                     this.pages_all = data_return.data.opuser_cnt;
                     this.total_trade_amt = data_return.data.total_trade_amt;
                     this.total_royalty_amt = data_return.data.total_royalty_amt;
-                    this.list_now = data_return.data.opuser_trade_infos;
+                    // this.list_now = data_return.data.opuser_trade_infos;
+                    if (this.pages_all <= 0) {
+                        Toast('暂无信息')
+                    } else {
+                        this.list_now = data_return.data.opuser_trade_infos;
+                    }   
                 })
             },
         }

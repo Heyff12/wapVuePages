@@ -57,6 +57,9 @@
             }
         },
         created() {
+            document.title = '关于我们';
+        },
+        watch: {
         },
         methods: {}
     }

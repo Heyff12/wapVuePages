@@ -34,7 +34,7 @@
             </dl>
         </section>
         <section class="info">
-            <mt-switch v-model="if_agree"></mt-switch><a href="http://192.168.0.165:9091/single.html#/protocol">我已阅读并同意好近分期<span class="orange decoration">《平台服务协议》</span></a>
+            <mt-switch v-model="if_agree"></mt-switch><a :href="protocolUrl">我已阅读并同意好近分期<span class="orange decoration">《平台服务协议》</span></a>
         </section>
         <section class="btn">
             <span @click="get_reg">立即绑定</span>
@@ -69,13 +69,21 @@
                 bind_url: '/fenqi/v1/api/user/bind', //用户绑定手机号
                 captcha_url: '/fenqi/v1/api/tools/send', //获取验证码
                 time_sec: 0, //倒计时   
+                protocolUrl:'',
             }
         },
         created() {
-            // console.log(this.reg.redirect_url)
-    
+            this.getUrl();    
         },
         methods: {
+            //获取协议页链接
+            getUrl(){
+                let url = location.protocol + '//' + location.hostname;
+                if (location.port) {
+                    url += ':' + location.port;
+                }
+                this.protocolUrl = url + '/single.html#/protocol';
+            },
             //验证通用
             yanzheng_common: function(val, reg_func, test_reg, success_func, error_func) {
                 yanzheng[reg_func](this.reg[val], true, test_reg, () => {

@@ -241,8 +241,8 @@
                 // }
                 //提交请求----
                 this.$ajax_axios.ajax_post(this, this.active_url, {
-                    'mobile': this.mobile,
-                    'role_type': this.role_type
+                    'mobile': this.mobile.toString(),
+                    'role_type': this.role_type.toString()
                 }, (data_return) => {
                     // window.location.href = data_return.data.redirect_url;
                 })

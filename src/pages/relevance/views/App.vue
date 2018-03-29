@@ -32,14 +32,20 @@
                 </dl>
                 <dl class="hang note">
                     <dt></dt>
-                    <dd class="green" v-if="role_type==1 && status==3">
-                        <i class="iconTip"><img src="~images/info_success.png" alt=""></i> 有效销售人员。
+                    <dd v-if="role_type==0 && status==0">
+                        <i class="iconTip"><img src="~images/info.png" alt=""></i> 填写销售人员信息有助于后期进行跟进服务
                     </dd>
-                    <dd class="red" v-else-if="role_type==1 && status==2">
-                        <i class="iconTip"><img src="~images/info_error.png" alt=""></i> 此销售人员账户未激活。
+                    <dd class="red" v-else-if="role_type!=1">
+                        <i class="iconTip"><img src="~images/info_error.png" alt=""></i> 无效销售人员，请检查是否输入正确
                     </dd>
-                    <dd v-else>
-                        <i class="iconTip"><img src="~images/info.png" alt=""></i> 填写销售人员信息有助于后期进行跟进服务。
+                    <dd class="green" v-else-if="status==3">
+                        <i class="iconTip"><img src="~images/info_success.png" alt=""></i> 有效销售人员
+                    </dd>
+                    <dd class="red" v-else-if="status==2">
+                        <i class="iconTip"><img src="~images/info_error.png" alt=""></i> 此销售人员账户未激活
+                    </dd>
+                    <dd class="red" v-else>
+                        <i class="iconTip"><img src="~images/info_error.png" alt=""></i> 无效销售人员，请检查是否输入正确
                     </dd>
                 </dl>
             </section>

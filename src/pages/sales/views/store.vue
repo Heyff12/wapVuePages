@@ -41,14 +41,7 @@
                 list_now: [], //当前展示信息    
             }
         },
-        watch: {
-            '$route' (to, from) {
-                console.log(to);
-                // document.title = 'shanghu';
-            }
-        },
-        created() {  
-            console.log(this.$route);          
+        created() {          
             this.getStoreList();
         },
         methods: {

@@ -116,7 +116,7 @@
                 } else if (this.roleType == 5) {
                     goUrl = '/sales.html#/district'
                 } else if (this.roleType == 8) {
-                    goUrl = ''
+                    goUrl = '/mine.html#/usercenter'
                 }
                 window.location.href = url + goUrl
             }
