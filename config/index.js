@@ -4,6 +4,12 @@
 
 const path = require('path')
 
+const isOnline = process.argv[2] === "production";
+const isDevTest = process.argv[2] === "devtest";
+// 在这定义七牛云的地址
+const qiNiuAssets = "//s.qfpay.com.cn/fe_qudao_mis/";
+const devTestAssets = "/fenqi/v1/";
+
 module.exports = {
     dev: {
         // Paths
@@ -14,7 +20,6 @@ module.exports = {
                 target: "http://cd.qa.qfpay.net"
             }
         },
-
         // Various Dev Server settings
         host: "192.168.0.165", // can be overwritten by process.env.HOST
         port: 9091, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
@@ -53,7 +58,7 @@ module.exports = {
         // Paths
         assetsRoot: path.resolve(__dirname, "../dist"),
         assetsSubDirectory: "static",
-        assetsPublicPath: "/",
+        assetsPublicPath: isOnline ? qiNiuAssets : isDevTest ? devTestAssets : "/",
 
         /**
          * Source Maps
