@@ -9,7 +9,7 @@ import ajax_axios from "../../method/ajax_axios"
 Vue.prototype.$ajax_axios = ajax_axios //设置ajax请求全局变量
 
 //模拟数据---------------------------------------------------------------------------------------------
-import "../../../mock/global";
+// import "../../../mock/global";
 
 
 window.FastClick = FastClick;

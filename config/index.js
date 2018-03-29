@@ -9,7 +9,11 @@ module.exports = {
         // Paths
         assetsSubDirectory: "static",
         assetsPublicPath: "/",
-        proxyTable: {},
+        proxyTable: {
+            "/fenqi/v1/api": {
+                target: "http://192.168.0.7:7010"
+            }
+        },
 
         // Various Dev Server settings
         host: "192.168.0.165", // can be overwritten by process.env.HOST
