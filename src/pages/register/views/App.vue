@@ -13,13 +13,13 @@
             <dl class="hang" :class="{error_data:regErr.mobile}">
                 <dt></dt>
                 <dd>
-                    <input class="text" type="text" value="" placeholder="请输入手机号" v-model="reg.mobile" @blur="yanzheng_common('mobile','test_phone','')" />
+                    <input class="text" type="number" value="" placeholder="请输入手机号" v-model="reg.mobile" @blur="yanzheng_common('mobile','test_phone','')" />
                 </dd>
             </dl>
             <dl class="hang" :class="{error_data:regErr.verify_code}">
                 <dt></dt>
                 <dd>
-                    <input type="text" name="" value="" class="text text_shot2 t_l" placeholder="请输入手机收到的验证码" v-model="reg.verify_code" @blur="yanzheng_common('verify_code','test_anycode','^[\\d]{6}$')" />
+                    <input type="number" name="" value="" class="text text_shot2 t_l" placeholder="请输入手机收到的验证码" v-model="reg.verify_code" @blur="yanzheng_common('verify_code','test_anycode','^[\\d]{6}$')" />
                     <p class="entycode">
                         <span class="get_entycode" @click="getCode" v-show="time_sec<=0">获取验证码</span>
                         <span class="show_entycode" @click="getCode2" v-show="time_sec>0"><i class="i_normal">{{time_sec}}</i>秒后重发</span>

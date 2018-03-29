@@ -1,26 +1,28 @@
 <template>
     <div>
-        <section class="defaultForm">
-            <dl class="hang" :class="{error_data:regErr.mobile}" v-show="!if_mobile">
+        <section class="defaultForm" v-show="!if_mobile">
+            <dl class="hang" :class="{error_data:regErr.mobile}">
                 <dt></dt>
                 <dd>
-                    <input class="text" type="text" value="" placeholder="请填写绑定销售身份的手机号" v-model="reg.mobile" @blur="yanzheng_common('mobile','test_phone','')" />
+                    <input class="text" type="number" value="" placeholder="请填写绑定销售身份的手机号" v-model="reg.mobile" @blur="yanzheng_common('mobile','test_phone','')" />
                 </dd>
             </dl>
-            <dl class="hang" :class="{error_data:regErr.captcha}" v-show="!if_mobile">
+            <dl class="hang" :class="{error_data:regErr.verify_code}">
                 <dt></dt>
                 <dd>
-                    <input type="text" name="" value="" class="text text_shot2 t_l" placeholder="请输入验证码" v-model="reg.verify_code" @blur="check_captcha" />
+                    <input type="number" name="" value="" class="text text_shot2 t_l" placeholder="请输入验证码" v-model="reg.verify_code" @blur="check_captcha" />
                     <p class="entycode">
                         <span class="get_entycode" @click="getCode" v-show="time_sec<=0">获取验证码</span>
                         <span class="show_entycode" @click="getCode2" v-show="time_sec>0"><i class="i_normal">{{time_sec}}</i>秒后重发</span>
                     </p>
                 </dd>
             </dl>
-            <dl class="hang showdt" v-show="if_mobile">
+        </section>
+        <section class="defaultForm" v-show="if_mobile">
+            <dl class="hang showdt">
                 <dt>手机号：</dt>
                 <dd>
-                    <input class="text" type="text" value="" placeholder="" v-model="mobile" readonly="readonly" />
+                    <input class="text" type="number" value="" placeholder="" v-model="mobile" readonly="readonly" />
                 </dd>
             </dl>
         </section>
@@ -46,19 +48,19 @@
                     </dl>
                 </li>
                 <template v-for="item in info.store">        
-                    <li v-show="role_type==1 || role_type==3">
-                        <dl>
-                            <dt>所在门店</dt>
-                            <dd>{{item.store_name}}</dd>
-                        </dl>
-                    </li>
-                    <li v-show="role_type==1 || role_type==3">
-                        <dl>
-                            <dt>门店地址</dt>
-                            <dd>{{item.address}}</dd>
-                        </dl>
-                    </li>
-                </template>
+                            <li v-show="role_type==1 || role_type==3">
+                                <dl>
+                                    <dt>所在门店</dt>
+                                    <dd>{{item.store_name}}</dd>
+                                </dl>
+                            </li>
+                            <li v-show="role_type==1 || role_type==3">
+                                <dl>
+                                    <dt>门店地址</dt>
+                                    <dd>{{item.address}}</dd>
+                                </dl>
+                            </li>
+</template>
             </ul>
             <p class="note">温馨提示：只需提交以上信息，点击【激活】系统会自动绑定并 激活您的账户，若对信息有疑问请及时致电：010-880XXXX.
             </p>
@@ -76,6 +78,7 @@
         MessageBox
     } from "mint-ui";
     import yanzheng from '@/method/yanzheng'
+    import wx from 'weixin-js-sdk'
     export default {
         name: 'activate',
         components: {},
@@ -130,6 +133,7 @@
             },
             //验证验证码
             check_captcha: function() {
+                console.log('blur');
                 //验证输入内容
                 this.yanzheng_common('mobile', 'test_phone', '');
                 this.yanzheng_common('verify_code', 'test_anycode', '^[\\d]{6}$');
@@ -163,10 +167,10 @@
                     this.info.real_name = data_return.data.base.real_name;
                     this.info.idnumber = data_return.data.base.idnumber;
                     if (roleType == 5) {
-                       this.info.district_name = data_return.data.info;
-                    }else{
+                        this.info.district_name = data_return.data.info;
+                    } else {
                         this.info.district_name.push(data_return.data.info[0]);
-                    }                    
+                    }
                     this.info.store = data_return.data.info
                     //保存角色类型 和 手机号
                     this.mobile = data_return.data.base.mobile;
@@ -174,9 +178,7 @@
                     this.has_info = true;
                     if (data_return.data.base.status == 3) {
                         MessageBox.alert('您的销售账户已激活！').then(action => {
-                            window.opener=null;
-                            window.open('','_self');
-                            window.close();
+                            wx.closeWindow();
                         });
                         return false;
                     }
@@ -191,38 +193,38 @@
                     if (data_return.data.base.mobile) {
                         this.if_mobile = true; //第一次获取到了
                         //根据身份增加提示
-                    let roleName = '';
-                    let roleType = data_return.data.base.role_type;
-                    if (roleType == 1) {
-                        roleName = '门店销售员'
-                    } else if (roleType == 3) {
-                        roleName = '门店管理人'
-                    } else if (roleType == 5) {
-                        roleName = '大区负责人'
-                    }
-                    //信息展示
-                    this.info.real_name = data_return.data.base.real_name;
-                    this.info.idnumber = data_return.data.base.idnumber;
-                    if (roleType == 5) {
-                       this.info.district_name = data_return.data.info;
-                    }else{
-                        this.info.district_name.push(data_return.data.info[0]);
-                    }                    
-                    this.info.store = data_return.data.info
-                    //保存角色类型 和 手机号
-                    this.mobile = data_return.data.base.mobile;
-                    this.role_type = data_return.data.base.role_type;
-                    this.has_info = true;
-                    // if (data_return.data.base.status == 3) {
-                    //     MessageBox.alert('您的销售账户已激活！').then(action => {
-                    //         window.opener=null;
-                    //         window.open('','_self');
-                    //         window.close();
-                    //     });
-                    //     return false;
-                    // }
-                    let messageVal = '已匹配您为[' + roleName + ']，请确认信息后激活账户'
-                    MessageBox.alert(messageVal);
+                        let roleName = '';
+                        let roleType = data_return.data.base.role_type;
+                        if (roleType == 1) {
+                            roleName = '门店销售员'
+                        } else if (roleType == 3) {
+                            roleName = '门店管理人'
+                        } else if (roleType == 5) {
+                            roleName = '大区负责人'
+                        }
+                        //信息展示
+                        this.info.real_name = data_return.data.base.real_name;
+                        this.info.idnumber = data_return.data.base.idnumber;
+                        if (roleType == 5) {
+                            this.info.district_name = data_return.data.info;
+                        } else {
+                            this.info.district_name.push(data_return.data.info[0]);
+                        }
+                        this.info.store = data_return.data.info
+                        //保存角色类型 和 手机号
+                        this.mobile = data_return.data.base.mobile;
+                        this.role_type = data_return.data.base.role_type;
+                        this.has_info = true;
+                        if (data_return.data.base.status == 3) {
+                            MessageBox.alert('您的销售账户已激活！').then(action => {
+                                // window.opener=null;
+                                // window.close();
+                                wx.closeWindow();
+                            });
+                            return false;
+                        }
+                        let messageVal = '已匹配您为[' + roleName + ']，请确认信息后激活账户'
+                        MessageBox.alert(messageVal);
                     }
                 })
             },

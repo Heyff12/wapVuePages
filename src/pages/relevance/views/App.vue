@@ -27,7 +27,7 @@
                 <dl class="hang" :class="{error_data:regErr.mobile}">
                     <dt></dt>
                     <dd>
-                        <input class="text" type="text" value="" placeholder="请填写销售人员手机号" v-model="reg.mobile" @blur="get_reg" />
+                        <input class="text" type="number" value="" placeholder="请填写销售人员手机号" v-model="reg.mobile" @blur="get_reg" />
                     </dd>
                 </dl>
                 <dl class="hang note">
