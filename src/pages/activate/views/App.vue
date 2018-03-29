@@ -244,7 +244,7 @@
                     'mobile': this.mobile,
                     'role_type': this.role_type
                 }, (data_return) => {
-                    // window.location.href = data_return.data.
+                    // window.location.href = data_return.data.redirect_url;
                 })
             },
             //获取验证码

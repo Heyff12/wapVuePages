@@ -11,7 +11,7 @@ module.exports = {
         assetsPublicPath: "/",
         proxyTable: {
             "/fenqi/v1/api": {
-                target: "http://192.168.0.7:7010"
+                target: "http://cd.qa.qfpay.net"
             }
         },
 
