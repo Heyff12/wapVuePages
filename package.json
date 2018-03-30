@@ -13,7 +13,8 @@
         "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
         "build": "node build/build.js",
         "build_online": "node build/build.js production",
-        "build_dev": "node build/build.js devtest  && gulp del && gulp copy"
+        "build_dev": "node build/build.js devtest",
+        "build_dev_old": "node build/build.js devtest  && gulp del && gulp copy"
     },
     "dependencies": {
         "ejs": "^2.5.7",
