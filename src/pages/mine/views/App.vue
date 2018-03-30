@@ -107,6 +107,7 @@
             },
             //跳转
             gotoUrl: function() {
+                let goUrl = '';
                 if (this.roleType == 1) {
                     goUrl = getUrl('salesrecord.html#/salesrecord')
                 } else if (this.roleType == 3) {
