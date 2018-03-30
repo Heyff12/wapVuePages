@@ -8,6 +8,8 @@ import { Switch } from "mint-ui";
 Vue.component(Switch.name, Switch);
 
 
+//隐藏右上角导航---------------------------------------------------------------------------------------------
+import '@/method/hidemenu'
 //ajax请求通用---------------------------------------------------------------------------------------------
 import ajax_axios from "../../method/ajax_axios"
 Vue.prototype.$ajax_axios = ajax_axios //设置ajax请求全局变量

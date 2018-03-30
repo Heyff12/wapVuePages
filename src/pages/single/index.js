@@ -3,6 +3,8 @@ import FastClick from "fastclick"; //解决300ms延迟
 import Vue from "vue";
 import router from "./router.js"; //路由
 import App from "./app.vue"; //模板
+//隐藏右上角导航---------------------------------------------------------------------------------------------
+import '@/method/hidemenu'
 //引入组建
 // import "mint-ui/lib/style.css";
 // import { Toast, Indicator } from "mint-ui";
