@@ -128,7 +128,7 @@ appConfig.pages.forEach(function(page) {
         inject: true, // hash: true, // html模板路径 // 生成的html存放路径,文件名，相对于path // //js插入的位置
         minify: { // 压缩HTML文件
             removeComments: true, // 移除HTML中的注释
-            collapseWhitespace: false, // 删除空白符与换行符
+            collapseWhitespace: true, // 删除空白符与换行符
             removeAttributeQuotes: true
         },
         RUN_ENV: utils.env
