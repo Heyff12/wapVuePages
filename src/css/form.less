@@ -1,0 +1,169 @@
+@import "./global";
+//表单 框架样式(注册、忘记密码)------------------------------------------------
+.defaultForm {
+  width: 100%;
+  margin: 0 auto @padding;
+  border-top: solid @border_color 1px;
+  /*no*/
+  border-bottom: solid @border_color 1px;
+  /*no*/
+  padding-left: @padding;
+  box-sizing: border-box;
+  background: white;
+  dl.hang {
+    width: 100%;
+    border: 0;
+    box-sizing: border-box;
+    padding: 0 @padding 0 0;
+    border-bottom: solid @border_color 1px;
+    /*no*/
+    height: 120px;
+    line-height: 120px;
+    font-size: 30px;
+    &:last-child {
+      border: 0;
+    }
+    dt {
+      float: left;
+      width: 0%;
+      position: relative;
+      display: none;
+    }
+    dd {
+      float: left;
+      width: 100%;
+      padding-right: @padding;
+      box-sizing: border-box;
+      text-align: left;
+      height: auto;
+      min-height: 120px;
+      input {
+        width: 100%;
+        background: none;
+        border: 0;
+        height: 115px;
+        line-height: 115px;
+        font-size: 30px;
+        text-align: left;
+        &::-moz-placeholder {
+          color: @grey_word;
+        }
+        &::-webkit-input-placeholder {
+          color: @grey_word;
+        }
+        &:-ms-input-placeholder {
+          color: @grey_word;
+        }
+        &.text {
+          &.text_shot {
+            width: 56%;
+            border: solid @border_color 1px;
+            /*no*/
+            height: 40px;
+            text-align: center;
+          }
+          &.text_shot2 {
+            width: 66%;
+          }
+          &.text_orange {
+            color: @orange;
+          }
+          &.t_l {
+            text-align: left;
+          }
+        }
+      }
+      textarea {
+        width: 100%;
+        background: none;
+        border: 0;
+        line-height: 22px;
+        font-size: @font_size;
+        text-align: left;
+      }
+      p.entycode {
+        width: 30%;
+        display: inline-block;
+        border: solid @color 1px;
+        /*no*/
+        border-radius: @color;
+        color: @color;
+        text-align: center;
+        height: 60px;
+        line-height: 60px;
+        float: right;
+        margin-top: 29px;
+        font-size: @font_size;
+        span.get_entycode {
+          width: 100%;
+        }
+        span.show_entycode {
+          width: 100%;
+        }
+      }
+    }
+    &.note{
+      color: @grey_word;
+      font-size: 22px;
+      height: 70px;
+      line-height: 70px;
+      overflow: hidden;
+    }
+    &.showdt{
+      dt{
+        width:20%;
+        display: block;
+      }
+      dd{
+        width: 70%;
+      }
+    }
+    &.error_data {
+      border-bottom: solid @red 1px;
+      /*no*/
+      dt {
+      }
+      dd {
+        color: @red;
+        input {
+          color: @red;
+        }
+      }
+    }
+    &.success {
+      dd {
+        span.dd_select {
+          color: @black;
+        }
+        input.dd_select {
+          color: @black;
+        }
+      }
+    }
+    .mint-switch-label {
+      color: @grey;
+    }
+    .clearfix;
+  } 
+}
+
+.btn {
+  width: 100%;
+  padding: 0 @padding;
+  margin-bottom: 50px;
+  span {
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: @border_radius;
+    height: 90px;
+    line-height: 90px;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    background: linear-gradient(#f69c1b,#f9bf57);
+    &.disa{
+      background: linear-gradient(#979899,#cacfd1);
+    }
+  }
+}

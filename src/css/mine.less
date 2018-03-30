@@ -1,0 +1,80 @@
+@import "./register";
+.topInfo {
+  .verify {
+    position: absolute;
+    width: 120px;
+    height: 50px;
+    background: @light_orange_bg;
+    border-radius: 25px 0 0 25px;
+    top: 45px;
+    right: 0;
+    line-height: 48px;
+    text-align: center;
+  }
+}
+.infoList {
+  width: 100%;
+  padding: 0 45px;
+  box-sizing: border-box;
+  margin-top: -60px;
+  position: relative;
+  .circleBox {
+    width: 100%;
+    padding: 1;
+    box-sizing: border-box;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 3px 6px rgba(88, 88, 88, 0.2);
+    ul {
+      width: 100%;
+      padding-left:150px;
+      box-sizing: border-box;
+      background: url('~images/icon_identity.png') 45px center no-repeat;
+      background-size:60px auto;
+      li {
+        width: 100%;
+        border-top: solid @border_color 1px;/*no*/
+        min-height: 90px;
+        line-height: 50px;
+        padding-top:20px;
+        box-sizing: border-box;
+        font-size: 28px;
+        &:nth-child(1){
+            border:0;
+        }
+        span{
+            width: 50%;
+            display: inline-block;
+        }
+      }
+      .clearfix;
+    }
+  }
+}
+.goBank {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 @padding;
+  height: 100px;
+  line-height: 100px;
+  background: white;
+  margin-top: 25px;
+  dl {
+    width: 100%;
+    font-size: 30px;
+    dt {
+      width: 70%;
+      float: left;
+    }
+    dd {
+      width: 30%;
+      float: left;
+      text-align: right;
+      padding-top: 35px;
+      img {
+        width: 14px;
+        height: auto;
+      }
+    }
+  }
+}
