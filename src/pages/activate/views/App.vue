@@ -257,7 +257,7 @@
                     'mobile': this.mobile.toString(),
                     'role_type': this.role_type.toString()
                 }, (data_return) => {
-                    // window.location.href = data_return.data.redirect_url;
+                    window.location.href = data_return.data.redirect_url;
                 })
             },
             //获取验证码
