@@ -1,6 +1,6 @@
 /**
  * chunks
- * Vue.js v2.5.16    vue-router v3.0.1   axios   vue-axios  FastClick weixin-js-sdk  mint-ui
+ * Vue.js v2.5.16    vue-router v3.0.1   axios   vue-axios  FastClick weixin-js-sdk(取消)  mint-ui
  */
 
 // 页面配置
