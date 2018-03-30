@@ -42,7 +42,8 @@
             }
         },
         created() {
-            this.getDistrictList();
+            document.title = '大区销售情况';
+            this.$ajax_axios.ajax_check(this,location.href,this.getDistrictList());
         },
         methods: {
             getDistrictList() {

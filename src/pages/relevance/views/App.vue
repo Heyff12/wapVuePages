@@ -41,12 +41,15 @@
                     <dd class="green" v-else-if="status==3">
                         <i class="iconTip"><img src="~images/info_success.png" alt=""></i> 有效销售人员
                     </dd>
-                    <dd class="red" v-else-if="status==2">
+                    <dd class="red" v-else>
                         <i class="iconTip"><img src="~images/info_error.png" alt=""></i> 此销售人员账户未激活
                     </dd>
-                    <dd class="red" v-else>
+                    <!-- <dd class="red" v-else-if="status==2">
+                        <i class="iconTip"><img src="~images/info_error.png" alt=""></i> 此销售人员账户未激活
+                    </dd> -->
+                    <!-- <dd class="red" v-else>
                         <i class="iconTip"><img src="~images/info_error.png" alt=""></i> 无效销售人员，请检查是否输入正确
-                    </dd>
+                    </dd> -->
                 </dl>
             </section>
         </section>
@@ -79,7 +82,10 @@
                 redirect_url: '', //跳转链接
             }
         },
-        created() {},
+        created() {
+            //检测csid
+            this.$ajax_axios.ajax_check(this, location.href)
+        },
         methods: {
             //验证通用
             yanzheng_common: function(val, reg_func, test_reg, success_func, error_func) {

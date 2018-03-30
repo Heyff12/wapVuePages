@@ -74,6 +74,8 @@
         },
         created() {
             this.protocolUrl = getUrl('single.html#/protocol');   
+            //检测csid
+            this.$ajax_axios.ajax_check(this,location.href)
         },
         methods: {
             //验证通用

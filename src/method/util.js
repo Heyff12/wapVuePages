@@ -127,11 +127,11 @@ let getUrl = val => {
     if (location.port) {
         url += ":" + location.port;
     }
-    console.log(url)
+    // console.log(url)
     let path = location.pathname;
     let pathVal = path.substr(1, path.length);
     let path_len = pathVal.split('/');
-    console.log(path_len);
+    // console.log(path_len);
     if (path_len.length <= 1) {
         end_url = url + "/" + val;
         console.log(end_url)
@@ -143,6 +143,15 @@ let getUrl = val => {
     return end_url;
 };
 
+//获取域名
+let getDomain = val => {
+    let url = location.protocol + "//" + location.hostname;
+    if (location.port) {
+        url += ":" + location.port;
+    }
+    return url;
+};
+
 
 exports.crash_format = crash_format
 exports.crash_if_format = crash_if_format
@@ -151,3 +160,4 @@ exports.searchPost = searchPost
 exports.mendPost = mendPost
 exports.getParams = getParams;
 exports.getUrl = getUrl;
+exports.getDomain = getDomain;

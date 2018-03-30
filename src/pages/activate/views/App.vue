@@ -41,7 +41,7 @@
                         <dd>{{info.idnumber}}</dd>
                     </dl>
                 </li>
-                <li v-for="item in info.district_name">
+                <li v-for="item in info.district_name" v-if="info.district_name>=1">
                     <dl>
                         <dt>所在大区</dt>
                         <dd>{{item.district_name}}</dd>
@@ -78,7 +78,7 @@
         MessageBox
     } from "mint-ui";
     import yanzheng from '@/method/yanzheng'
-    // import wx from 'weixin-js-sdk'
+    import wx from 'weixin-js-sdk'
     export default {
         name: 'activate',
         components: {},
@@ -113,7 +113,8 @@
             }
         },
         created() {
-            this.getInfoStart();
+            //检测csid
+            this.$ajax_axios.ajax_check(this,location.href,this.getInfoStart())
         },
         methods: {
             //验证通用
@@ -177,15 +178,15 @@
                     this.has_info = true;
                     if (data_return.data.base.status == 3) {
                         MessageBox.alert('您的销售账户已激活！').then(action => {
-                            // wx.closeWindow();    
-                            if (typeof WeixinJSBridge == "undefined") {
-                                window.opener = null;
-                                window.close();
-                            } else {
-                                WeixinJSBridge.invoke('closeWindow', {}, function(res) {
-                                    //alert(res.err_msg);
-                                });
-                            }
+                            wx.closeWindow();    
+                            // if (typeof WeixinJSBridge == "undefined") {
+                            //     window.opener = null;
+                            //     window.close();
+                            // } else {
+                            //     WeixinJSBridge.invoke('closeWindow', {}, function(res) {
+                            //         //alert(res.err_msg);
+                            //     });
+                            // }
                         });
                         return false;
                     }
@@ -208,6 +209,11 @@
                             roleName = '门店管理人'
                         } else if (roleType == 5) {
                             roleName = '大区负责人'
+                        }else{//非销售人员
+                            MessageBox.alert('非销售人员，不需要激活！').then(action => {
+                                wx.closeWindow();  
+                            });
+                            return false;
                         }
                         //信息展示
                         this.info.real_name = data_return.data.base.real_name;
@@ -224,15 +230,15 @@
                         this.has_info = true;
                         if (data_return.data.base.status == 3) {
                             MessageBox.alert('您的销售账户已激活！').then(action => {
-                                // wx.closeWindow();    
-                                if (typeof WeixinJSBridge == "undefined") {
-                                    window.opener = null;
-                                    window.close();
-                                } else {
-                                    WeixinJSBridge.invoke('closeWindow', {}, function(res) {
-                                        //alert(res.err_msg);
-                                    });
-                                }
+                                wx.closeWindow();    
+                                // if (typeof WeixinJSBridge == "undefined") {
+                                //     window.opener = null;
+                                //     window.close();
+                                // } else {
+                                //     WeixinJSBridge.invoke('closeWindow', {}, function(res) {
+                                //         //alert(res.err_msg);
+                                //     });
+                                // }
                             });
                             return false;
                         }

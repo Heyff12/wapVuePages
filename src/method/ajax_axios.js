@@ -2,6 +2,7 @@ import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
 import { Indicator, Toast } from 'mint-ui'; //引入加载动画和文字提示框
+import { getDomain } from "./util";
 
 Vue.use(VueAxios, axios);
 //ajax-请求--resource---get
@@ -120,9 +121,46 @@ let ajax_post = (
         });
 };
 
+//ajax-检测csid
+//that--运行函数的this；url--请求连接；data--传递的数据；success_func--请求成功后的事件；error_func--请求失败后的事件；all_func--不需要请求处理的事件
+let checkUrl =
+    location.hostname == "" ?
+    "https://o.qfpay.com/mchnt/check_csid" :
+    "https://o.qa.qfpay.net/mchnt/check_csid";
+let domainNow = getDomain();
+let ajax_check = (
+    that,
+    urlTo,
+    success_func
+) => {
+    let _this = that;
+    //console.log('get');
+    Indicator.open();
+    _this.$http
+        .get(checkUrl, { params: { format: "cors" }, withCredentials: true })
+        .then(function(response) {
+            Indicator.close();
+            let data_return = response.data;
+            if (data_return.respcd == "0000") {
+                if (success_func) {
+                    success_func(data_return);
+                }
+            } else {
+                window.location.href = domainNow + "/fenqi/v1/api/weixin/redirct?redirect_url=" + urlTo;
+            }
+        }, function(response) {
+            Indicator.close();
+            Toast("checkCsid系统问题,请稍后再试");
+        })
+        .catch(function(response) {
+            Indicator.close();
+        });
+};
+
 export default {
     ajax_get: ajax_get,
-    ajax_post: ajax_post
+    ajax_post: ajax_post,
+    ajax_check: ajax_check
 };
 
 //测试---------------------------------------------------

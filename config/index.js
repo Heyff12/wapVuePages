@@ -14,7 +14,7 @@ module.exports = {
     dev: {
         // Paths
         assetsSubDirectory: "static",
-        assetsPublicPath: "/",
+        assetsPublicPath: "/fenqi/v1/",
         proxyTable: {
             "/fenqi/v1/api": {
                 target: "http://cd.qa.qfpay.net"

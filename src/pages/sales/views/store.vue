@@ -41,8 +41,9 @@
                 list_now: [], //当前展示信息    
             }
         },
-        created() {          
-            this.getStoreList();
+        created() {    
+            document.title = '门店销售情况';
+            this.$ajax_axios.ajax_check(this,location.href,this.getStoreList());  
         },
         methods: {
             getStoreList() {
