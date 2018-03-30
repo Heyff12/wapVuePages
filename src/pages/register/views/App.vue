@@ -49,7 +49,7 @@
     } from "mint-ui";
     import yanzheng from '@/method/yanzheng'
     import {
-        getParams
+        getParams,getUrl
     } from '@/method/util'
     export default {
         name: 'register',
@@ -73,17 +73,9 @@
             }
         },
         created() {
-            this.getUrl();    
+            this.protocolUrl = getUrl('single.html#/protocol');   
         },
         methods: {
-            //获取协议页链接
-            getUrl(){
-                let url = location.protocol + '//' + location.hostname;
-                if (location.port) {
-                    url += ':' + location.port;
-                }
-                this.protocolUrl = url + '/single.html#/protocol';
-            },
             //验证通用
             yanzheng_common: function(val, reg_func, test_reg, success_func, error_func) {
                 yanzheng[reg_func](this.reg[val], true, test_reg, () => {

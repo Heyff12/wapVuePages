@@ -120,6 +120,29 @@ let getParams = (key) => {
     return key_val;
 }
 
+//拼接路径
+let getUrl = val => {
+    let end_url = '';
+    let url = location.protocol + "//" + location.hostname;
+    if (location.port) {
+        url += ":" + location.port;
+    }
+    console.log(url)
+    let path = location.pathname;
+    let pathVal = path.substr(1, path.length);
+    let path_len = pathVal.split('/');
+    console.log(path_len);
+    if (path_len.length <= 1) {
+        end_url = url + "/" + val;
+        console.log(end_url)
+    } else {
+        path_len.pop();
+        let newPath = path_len.join('/');
+        end_url = url + "/" + newPath + '/' + val;
+    }
+    return end_url;
+};
+
 
 exports.crash_format = crash_format
 exports.crash_if_format = crash_if_format
@@ -127,3 +150,4 @@ exports.crash_enlarge_format = crash_enlarge_format
 exports.searchPost = searchPost
 exports.mendPost = mendPost
 exports.getParams = getParams;
+exports.getUrl = getUrl;

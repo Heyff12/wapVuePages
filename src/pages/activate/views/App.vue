@@ -105,7 +105,6 @@
                 mobile: '', //获取得电话
                 if_mobile: false, //是否获取到电话
                 has_info: false, //信息是否展示
-                reg_url: '/reg', //注册
                 captcha_url: '/fenqi/v1/api/tools/send', //获取验证码
                 check_url: '/fenqi/v1/api/user/check/info', //核对验证码
                 info_url: '/fenqi/v1/api/user/info', //用户基本信息获取

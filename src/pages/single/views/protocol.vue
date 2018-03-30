@@ -224,9 +224,7 @@
             }
         },
         created() {
-            console.log(document.title)
             document.title = '平台服务协议';
-            console.log(document.title)
         },
         methods: {}
     }

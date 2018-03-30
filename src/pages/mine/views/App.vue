@@ -43,6 +43,9 @@
     import {
         Toast
     } from "mint-ui";
+    import {
+        getUrl
+    } from '@/method/util'
     export default {
         name: 'mine',
         components: {},
@@ -104,21 +107,16 @@
             },
             //跳转
             gotoUrl: function() {
-                let goUrl = '';
-                let url = location.protocol + '//' + location.hostname;
-                if (location.port) {
-                    url += ':' + location.port;
-                }
                 if (this.roleType == 1) {
-                    goUrl = '/salesrecord.html#/salesrecord'
+                    goUrl = getUrl('salesrecord.html#/salesrecord')
                 } else if (this.roleType == 3) {
-                    goUrl = '/sales.html#/store'
+                    goUrl = getUrl('sales.html#/store')
                 } else if (this.roleType == 5) {
-                    goUrl = '/sales.html#/district'
+                    goUrl = getUrl('sales.html#/district')
                 } else if (this.roleType == 8) {
-                    goUrl = '/mine.html#/usercenter'
+                    goUrl = getUrl('mine.html#/usercenter')
                 }
-                window.location.href = url + goUrl
+                window.location.href = goUrl
             }
         }
     }
