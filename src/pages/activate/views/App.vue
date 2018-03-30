@@ -48,18 +48,18 @@
                     </dl>
                 </li>
                 <template v-for="item in info.store">        
-                                    <li v-show="role_type==1 || role_type==3">
-                                        <dl>
-                                            <dt>所在门店</dt>
-                                            <dd>{{item.store_name}}</dd>
-                                        </dl>
-                                    </li>
-                                    <li v-show="role_type==1 || role_type==3">
-                                        <dl>
-                                            <dt>门店地址</dt>
-                                            <dd>{{item.address}}</dd>
-                                        </dl>
-                                    </li>
+                                        <li v-show="role_type==1 || role_type==3">
+                                            <dl>
+                                                <dt>所在门店</dt>
+                                                <dd>{{item.store_name}}</dd>
+                                            </dl>
+                                        </li>
+                                        <li v-show="role_type==1 || role_type==3">
+                                            <dl>
+                                                <dt>门店地址</dt>
+                                                <dd>{{item.address}}</dd>
+                                            </dl>
+                                        </li>
 </template>
             </ul>
             <p class="note">温馨提示：只需提交以上信息，点击【激活】系统会自动绑定并 激活您的账户，若对信息有疑问请及时致电：4000-360-280.
@@ -177,7 +177,7 @@
                     this.role_type = data_return.data.base.role_type;
                     this.has_info = true;
                     if (data_return.data.base.status == 3) {
-                        MessageBox.alert('您的销售账户已激活！').then(action => {                            
+                        MessageBox.alert('您的销售账户已激活！').then(action => {
                             // wx.closeWindow();    
                             if (typeof WeixinJSBridge == "undefined") {
                                 window.opener = null;
@@ -224,7 +224,7 @@
                         this.role_type = data_return.data.base.role_type;
                         this.has_info = true;
                         if (data_return.data.base.status == 3) {
-                            MessageBox.alert('您的销售账户已激活！').then(action => {                            
+                            MessageBox.alert('您的销售账户已激活！').then(action => {
                                 // wx.closeWindow();    
                                 if (typeof WeixinJSBridge == "undefined") {
                                     window.opener = null;
@@ -234,8 +234,6 @@
                                         //alert(res.err_msg);
                                     });
                                 }
-                            });
-                        });
                             });
                             return false;
                         }
