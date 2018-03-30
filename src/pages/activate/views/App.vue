@@ -78,7 +78,7 @@
         MessageBox
     } from "mint-ui";
     import yanzheng from '@/method/yanzheng'
-    import wx from 'weixin-js-sdk'
+    // import wx from 'weixin-js-sdk'
     export default {
         name: 'activate',
         components: {},
@@ -114,7 +114,7 @@
             }
         },
         created() {
-            this.getInfoStart();            
+            this.getInfoStart();     
         },
         methods: {
             //验证通用
@@ -178,7 +178,10 @@
                     this.has_info = true;
                     if (data_return.data.base.status == 3) {
                         MessageBox.alert('您的销售账户已激活！').then(action => {
-                            wx.closeWindow();
+                            // wx.closeWindow();
+                            WeixinJSBridge.invoke('closeWindow',{},function(res){
+                                //alert(res.err_msg);
+                            });
                         });
                         return false;
                     }
@@ -219,7 +222,10 @@
                             MessageBox.alert('您的销售账户已激活！').then(action => {
                                 // window.opener=null;
                                 // window.close();
-                                wx.closeWindow();
+                                // wx.closeWindow();
+                                WeixinJSBridge.invoke('closeWindow',{},function(res){
+                                    //alert(res.err_msg);
+                                });
                             });
                             return false;
                         }
