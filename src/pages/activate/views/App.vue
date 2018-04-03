@@ -41,7 +41,7 @@
                         <dd>{{info.idnumber}}</dd>
                     </dl>
                 </li>
-                <li v-for="item in info.district_name" v-if="info.district_name>=1">
+                <li v-for="item in info.district_name" v-if="info.district_name.length>=1">
                     <dl>
                         <dt>所在大区</dt>
                         <dd>{{item.district_name}}</dd>
@@ -114,7 +114,7 @@
         },
         created() {
             //检测csid
-            this.$ajax_axios.ajax_check(this,location.href,this.getInfoStart())
+            this.$ajax_axios.ajax_check(this,location.href,this.getInfoStart)
         },
         methods: {
             //验证通用
@@ -133,7 +133,7 @@
             },
             //验证验证码
             check_captcha: function() {
-                console.log('blur');
+                // console.log('blur');
                 //验证输入内容
                 this.yanzheng_common('mobile', 'test_phone', '');
                 this.yanzheng_common('verify_code', 'test_anycode', '^[\\d]{6}$');
@@ -152,7 +152,7 @@
             //获取信息
             getInfo: function() {
                 this.$ajax_axios.ajax_get(this, this.info_url, '', (data_return) => {
-                    console.log(data_return.data)
+                    // console.log(data_return.data)
                     //根据身份增加提示
                     let roleName = '';
                     let roleType = data_return.data.base.role_type;
@@ -171,6 +171,7 @@
                     } else {
                         this.info.district_name.push(data_return.data.info[0]);
                     }
+                        console.log(this.info.district_name)
                     this.info.store = data_return.data.info
                     //保存角色类型 和 手机号
                     this.mobile = data_return.data.base.mobile;
@@ -196,8 +197,9 @@
             },
             //获取信息
             getInfoStart: function() {
+                // console.log('info--get')
                 this.$ajax_axios.ajax_get(this, this.info_url, '', (data_return) => {
-                    console.log(data_return.data)
+                    // console.log(data_return.data)
                     if (data_return.data.base.mobile) {
                         this.if_mobile = true; //第一次获取到了
                         //根据身份增加提示
@@ -223,6 +225,8 @@
                         } else {
                             this.info.district_name.push(data_return.data.info[0]);
                         }
+
+                        // console.log(this.info.district_name)
                         this.info.store = data_return.data.info
                         //保存角色类型 和 手机号
                         this.mobile = data_return.data.base.mobile;
