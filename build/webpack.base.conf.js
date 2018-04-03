@@ -103,49 +103,35 @@ module.exports = {
                     limit: 10000,
                     name: utils.assetsPath("fonts/[name].[hash:7].[ext]")
                 }
-            },
+            }
             // {
             //     test: /\.css$/,
+            //     include: [resolve("node_modules/mint-ui/lib")],
             //     // use: ExtractTextPlugin.extract({
-            //     //     fallback: "style-loader",
-            //     //     use: cssLoader
-            //     // }),
+            //     //         fallback: "style-loader",
+            //     //         use: cssLoader
+            //     //     })
             //     use: [
-            //         "style-loader",
+            //         { loader: "style-loader" },
             //         { loader: "css-loader", options: { importLoaders: 1 } },
             //         {
             //             loader: "postcss-loader",
             //             options: {
-            //                 plugins: [
-            //                     require("postcss-px2rem")({
-            //                         baseDpr: 2, // base device pixel ratio (default: 2)
-            //                         threeVersion: false, // whether to generate @1x, @2x and @3x version (default: false)
-            //                         remVersion: true, // whether to generate rem version (default: true)
-            //                         remUnit: 75, // rem unit value (default: 75)
-            //                         remPrecision: 6 // rem precision (default: 6)
-            //                     })
-            //                 ]
+            //                 config: {
+            //                     path: resolve("postcss.config.js")
+            //                 }
+            //                 // plugins: [
+            //                 //     require("postcss-px2rem")({
+            //                 //         baseDpr: 2, // base device pixel ratio (default: 2)
+            //                 //         threeVersion: false, // whether to generate @1x, @2x and @3x version (default: false)
+            //                 //         remVersion: true, // whether to generate rem version (default: true)
+            //                 //         remUnit: 75, // rem unit value (default: 75)
+            //                 //         remPrecision: 6 // rem precision (default: 6)
+            //                 //     })
+            //                 // ]
             //             }
             //         }
-            //     ],
-            //     include: [resolve("src"), resolve("node_modules/mint-ui/lib")]
-            // }
-            // {
-            //     test: /\.css$/,
-            //     use: [{
-            //             loader: "style-loader"
-            //         },
-            //         {
-            //             loader: "css-loader",
-            //             options: {
-            //                 importLoaders: 1
-            //             }
-            //         },
-            //         {
-            //             loader: "postcss-loader"
-            //         }
-            //     ],
-            //     include: [resolve("src"), resolve("node_modules/mint-ui/lib")]
+            //     ]
             // }
         ]
     },
