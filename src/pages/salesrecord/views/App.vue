@@ -47,7 +47,7 @@
             }
         },
         created() {
-            this.$ajax_axios.ajax_check(this,location.href,this.getList());  
+            this.$ajax_axios.ajax_check(this,location.href,this.getList);  
         },
         methods: {
             getList() {

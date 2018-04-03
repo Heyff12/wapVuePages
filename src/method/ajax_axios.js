@@ -139,9 +139,12 @@ let ajax_check = (
     _this.$http
         .get(checkUrl, { params: { format: "cors" }, withCredentials: true })
         .then(function(response) {
+            // console.log(response);
             Indicator.close();
             let data_return = response.data;
+            // console.log(data_return.respcd);
             if (data_return.respcd == "0000") {
+                // console.log('0000')
                 if (success_func) {
                     success_func(data_return);
                 }

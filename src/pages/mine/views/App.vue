@@ -72,7 +72,7 @@
         created() {
             // this.getInfoStart();
             //检测csid
-            this.$ajax_axios.ajax_check(this,location.href,this.getInfoStart())
+            this.$ajax_axios.ajax_check(this,location.href,this.getInfoStart)
         },
         methods: {
             //获取信息
