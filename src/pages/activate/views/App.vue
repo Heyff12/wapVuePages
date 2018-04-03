@@ -199,7 +199,7 @@
             getInfoStart: function() {
                 // console.log('info--get')
                 this.$ajax_axios.ajax_get(this, this.info_url, '', (data_return) => {
-                    console.log(data_return.data)
+                    // console.log(data_return.data)
                     if (data_return.data.base.mobile) {
                         this.if_mobile = true; //第一次获取到了
                         //根据身份增加提示
@@ -226,7 +226,7 @@
                             this.info.district_name.push(data_return.data.info[0]);
                         }
 
-                        console.log(this.info.district_name)
+                        // console.log(this.info.district_name)
                         this.info.store = data_return.data.info
                         //保存角色类型 和 手机号
                         this.mobile = data_return.data.base.mobile;
