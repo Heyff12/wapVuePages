@@ -107,6 +107,11 @@ module.exports = {
             // {
             //     test: /\.css$/,
             //     include: [resolve("node_modules/mint-ui/lib")],
+            //     loader: "style-loader!css-loader"
+            // }
+            // {
+            //     test: /\.css$/,
+            //     include: [resolve("node_modules/mint-ui/lib")],
             //     // use: ExtractTextPlugin.extract({
             //     //         fallback: "style-loader",
             //     //         use: cssLoader
