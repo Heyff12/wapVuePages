@@ -141,7 +141,8 @@
                     }, 1000);
                     //提交请求----
                     this.$ajax_axios.ajax_post(this, this.captcha_url, {
-                        mobile: this.reg.mobile
+                        mobile: this.reg.mobile,
+                        check:1
                     }, (data_return) => {
                         Toast('短信发送成功，请注意查收')
                     })

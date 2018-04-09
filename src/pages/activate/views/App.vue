@@ -283,7 +283,8 @@
                     }, 1000);
                     //提交请求----
                     this.$ajax_axios.ajax_post(this, this.captcha_url, {
-                        mobile: this.reg.mobile
+                        mobile: this.reg.mobile,
+                        check:1
                     }, (data_return) => {
                         this.captcha = data_return.data.captcha; //返回验证码-原数
                     })
