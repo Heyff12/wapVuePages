@@ -287,6 +287,12 @@
                         check:1
                     }, (data_return) => {
                         this.captcha = data_return.data.captcha; //返回验证码-原数
+                    }, () => {
+                        window.clearInterval(interval); //停止倒计时
+                        this.time_sec = 0; //恢复倒计时时间为0，让 获取验证码 按钮恢复可点
+                    }, () => {
+                        window.clearInterval(interval); //停止倒计时
+                        this.time_sec = 0; //恢复倒计时时间为0，让 获取验证码 按钮恢复可点
                     })
                 });
             },

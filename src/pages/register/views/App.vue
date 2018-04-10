@@ -145,6 +145,12 @@
                         check:1
                     }, (data_return) => {
                         Toast('短信发送成功，请注意查收')
+                    }, () => {
+                        window.clearInterval(interval); //停止倒计时
+                        this.time_sec = 0; //恢复倒计时时间为0，让 获取验证码 按钮恢复可点
+                    }, () => {
+                        window.clearInterval(interval); //停止倒计时
+                        this.time_sec = 0; //恢复倒计时时间为0，让 获取验证码 按钮恢复可点
                     })
                 });
             },
