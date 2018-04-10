@@ -124,7 +124,7 @@ let ajax_post = (
 //ajax-检测csid
 //that--运行函数的this；url--请求连接；data--传递的数据；success_func--请求成功后的事件；error_func--请求失败后的事件；all_func--不需要请求处理的事件
 let checkUrl =
-    location.hostname == "" ?
+    location.hostname == "o2.qfpay.com" ?
     "https://o.qfpay.com/mchnt/check_csid" :
     "https://o.qa.qfpay.net/mchnt/check_csid";
 let domainNow = getDomain();
