@@ -54,7 +54,7 @@ export default {
       reg: {
         mobile: localStorage.mobile ? localStorage.mobile : "", //12344444444
         verify_code: localStorage.verify_code ? localStorage.verify_code : "", //4444444
-        redirect_url: decodeURIComponent(getParams("redirect_url"))
+        redirect_url: "",
       },
       regErr: {
         mobile: false,
@@ -112,10 +112,13 @@ export default {
           return false;
         }
       }
+      let urlTo = decodeURIComponent(getParams("redirect_url"));
       //验证连接是否存在
-      if (!this.reg.redirect_url) {
+      if (!urlTo) {
         Toast("缺少参数，请重新操作");
         return false;
+      }else{
+          this.reg.redirect_url = urlTo;
       }
       //验证是否阅读
       if (!this.if_agree) {
