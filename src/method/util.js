@@ -105,7 +105,7 @@ let getParams = (key) => {
     let url = location.href;
     let key_len = url.split("?");
     if (key_len.length <= 1) {
-        return false;
+        return '';
     }
     let params = key_len[1];
     let params_arr = params.split('&')
@@ -114,7 +114,7 @@ let getParams = (key) => {
         let val = item.split('=')
         if (val[0] == key) {
             key_val = val[1]
-            return false;
+            return '';
         }
     })
     return key_val;
@@ -134,7 +134,7 @@ let getUrl = val => {
     // console.log(path_len);
     if (path_len.length <= 1) {
         end_url = url + "/" + val;
-        console.log(end_url)
+        // console.log(end_url)
     } else {
         path_len.pop();
         let newPath = path_len.join('/');
