@@ -7,7 +7,7 @@ const path = require('path')
 const isOnline = process.argv[2] === "production";
 const isDevTest = process.argv[2] === "devtest";
 // 在这定义七牛云的地址
-const qiNiuAssets = "//s.qfpay.com.cn/fe_qudao_mis/";
+const qiNiuAssets = "//s.qfpay.com.cn/fe_fenqi_portal/";
 const devTestAssets = "/fenqi/v1/";
 
 module.exports = {
